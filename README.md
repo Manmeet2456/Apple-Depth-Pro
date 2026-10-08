@@ -1,12 +1,17 @@
 ## Depth Pro: Sharp Monocular Metric Depth in Less Than a Second
 
+> **Attribution notice:** Depth Pro is research and software created by Apple and
+> the authors listed below. This repository is an unofficial mirror for
+> personal experimentation and AI-agent workflows; it does not claim ownership
+> or authorship of the Depth Pro research, model, or reference implementation.
+
 This software project accompanies the research paper:
 **[Depth Pro: Sharp Monocular Metric Depth in Less Than a Second](https://arxiv.org/abs/2410.02073)**, 
 *Aleksei Bochkovskii, Amaël Delaunoy, Hugo Germain, Marcel Santos, Yichao Zhou, Stephan R. Richter, and Vladlen Koltun*.
 
 ![](data/depth-pro-teaser.jpg)
 
-We present a foundation model for zero-shot metric monocular depth estimation. Our model, Depth Pro, synthesizes high-resolution depth maps with unparalleled sharpness and high-frequency details. The predictions are metric, with absolute scale, without relying on the availability of metadata such as camera intrinsics. And the model is fast, producing a 2.25-megapixel depth map in 0.3 seconds on a standard GPU. These characteristics are enabled by a number of technical contributions, including an efficient multi-scale vision transformer for dense prediction, a training protocol that combines real and synthetic datasets to achieve high metric accuracy alongside fine boundary tracing, dedicated evaluation metrics for boundary accuracy in estimated depth maps, and state-of-the-art focal length estimation from a single image.
+Apple's Depth Pro is a foundation model for zero-shot metric monocular depth estimation. It synthesizes high-resolution depth maps with unparalleled sharpness and high-frequency details. The predictions are metric, with absolute scale, without relying on the availability of metadata such as camera intrinsics. The model is fast, producing a 2.25-megapixel depth map in 0.3 seconds on a standard GPU. These characteristics are enabled by a number of technical contributions, including an efficient multi-scale vision transformer for dense prediction, a training protocol that combines real and synthetic datasets to achieve high metric accuracy alongside fine boundary tracing, dedicated evaluation metrics for boundary accuracy in estimated depth maps, and state-of-the-art focal length estimation from a single image.
 
 
 The model in this repository is a reference implementation, which has been re-trained. Its performance is close to the model reported in the paper but does not match it exactly.
@@ -58,7 +63,7 @@ focallength_px = prediction["focallength_px"]  # Focal length in pixels.
 
 ### Processing video frames
 
-The repository also includes GPU video-frame helpers:
+This mirror also includes GPU video-frame helper scripts:
 
 ```bash
 python process_video_frames.py
@@ -73,7 +78,7 @@ with a CUDA-enabled PyTorch installation.
 
 ### Evaluation (boundary metrics) 
 
-Our boundary metrics can be found under `eval/boundary_metrics.py` and used as follows:
+The boundary metrics can be found under `eval/boundary_metrics.py` and used as follows:
 
 ```python
 # for a depth-based dataset
@@ -86,7 +91,7 @@ boundary_recall = SI_boundary_Recall(predicted_depth, target_mask)
 
 ## Citation
 
-If you find our work useful, please cite the following paper:
+If you use this work, please cite the following paper:
 
 ```bibtex
 @inproceedings{Bochkovskii2024:arxiv,
@@ -106,6 +111,6 @@ The model weights are released under the [LICENSE](LICENSE) terms.
 
 ## Acknowledgements
 
-Our codebase is built using multiple opensource contributions, please see [Acknowledgements](ACKNOWLEDGEMENTS.md) for more details.
+The codebase is built using multiple opensource contributions, please see [Acknowledgements](ACKNOWLEDGEMENTS.md) for more details.
 
 Please check the paper for a complete list of references and datasets used in this work.
