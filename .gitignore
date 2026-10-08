@@ -1,0 +1,32 @@
+# Python build and cache files
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+env/
+
+# Downloaded model checkpoints
+checkpoints/
+*.pt
+*.pth
+
+# Generated depth data and visualizations
+*.npy
+*_output/
+*_visuals/
+
+# Local video-frame datasets and generated samples
+_*/
+sample*_input/
+sample*_npy/
+sample*_output/
+sample3_depth_outputs/
+
+# Local tooling and OS files
+.env
+.DS_Store
+Thumbs.db

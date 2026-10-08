@@ -56,6 +56,20 @@ depth = prediction["depth"]  # Depth in [m].
 focallength_px = prediction["focallength_px"]  # Focal length in pixels.
 ```
 
+### Processing video frames
+
+The repository also includes GPU video-frame helpers:
+
+```bash
+python process_video_frames.py
+python process_video_frames_to_npy.py
+```
+
+The helpers read PNG frames from the input directory configured near the top of
+each script. The first writes colorized depth visualizations; the second writes
+raw metric depth arrays in meters. Download the checkpoint first and run them
+with a CUDA-enabled PyTorch installation.
+
 
 ### Evaluation (boundary metrics) 
 
